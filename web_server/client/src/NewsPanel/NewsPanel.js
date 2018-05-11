@@ -9,7 +9,31 @@ classNewsPanelextendsReact.Component{
      super();
      // list of NewsCard
      this.state = {news: null};
-}
+   }
+
+   componentDidMount() {
+     this.loadMoreNews();
+
+   }
+
+   renderNews() {
+      const news_card_list = this.state.news.map(one_news => {
+        return(
+          <a className='list-group-item' href="#">
+            <NewsCard news={one_news} />
+          </a>
+        );
+      });
+
+      return(
+        <div className="container-fluid">
+          <div className='list-group'>
+            {news_card_list}
+          </div>
+        </div>
+      )
+  }
+
    render() {
      if (this.state.news) {
        return(
@@ -23,6 +47,6 @@ classNewsPanelextendsReact.Component{
           Loading...
         </div>
         ) }
-      } }
+  } }
 
 export defaultNewsPanel;

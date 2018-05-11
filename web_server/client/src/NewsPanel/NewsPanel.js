@@ -2,6 +2,7 @@ import './NewsPanel.css';
 
 import NewsCard from '../NewsCard/NewsCard';
 import React from 'react';
+import _ from 'lodash';
 
 
 classNewsPanelextendsReact.Component{
@@ -13,8 +14,31 @@ classNewsPanelextendsReact.Component{
 
    componentDidMount() {
      this.loadMoreNews();
-
+     this.loadMoreNews = _.debounce(this.loadMoreNews, 1000);
+     window.addEventListener('scroll', () => this.handleScroll());
    }
+
+   handleScroll() {
+     let scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+     if ((window.innerHeight + scrollY) >= (document.body.offsetHeight - 50)) {
+       console.log('handleScroll');
+       this.loadMoreNews();
+     }
+   }
+
+  loadMoreNews() {
+    const new_url = 'http://' + window.location.hostname + ':3000' + '/news';
+    const request = new Request(news_url, {method: 'GET'});
+
+    fetch(request)
+      .then(res => res.json())
+      .then(fetched_news_list => {
+        this.setState({
+          news: this.state.news ? this.state.news.concat(fetched_news_list) : fetched_news_list;
+      });
+    });
+  }
+
 
    renderNews() {
       const news_card_list = this.state.news.map(one_news => {

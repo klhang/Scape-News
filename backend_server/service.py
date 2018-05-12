@@ -1,7 +1,3 @@
-import json
-import os
-import sys
-
 import operations
 
 from bson.json_util import dumps
@@ -20,8 +16,10 @@ def get_one_news():
     return json.loads(dumps(operations.getOneNews()))
 
 RPC_SERVER = SimpleJSONRPCServer((SERVER_HOST, SERVER_PORT))
-# expose the addAPI.map add function to'add'API
-RPC_SERVER.register_function(add,'add')
-print("StartingRPCserveron%s:%d"%(SERVER_HOST,SERVER_PORT))
+RPC_SERVER.register_function(add, 'add')
+RPC_SERVER.register_function(get_one_nenews, 'getOneNews')
 
-server.serve_forever()
+
+print("Starting RPC server on %s:%d" % (SERVER_HOST, SERVER_PORT))
+
+RPC_SERVER.serve_forever()

@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "ajv": "^6.5.0",
     "lodash": "^4.17.10",
     "materialize-css": "^0.100.2",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
+    "react-router": "^3.2.1",
     "react-scripts": "1.1.4"
   },
   "scripts": {

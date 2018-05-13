@@ -1,3 +1,4 @@
+import Auth from '../Auth/Auth';
 import LoginForm from './LoginForm';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -54,12 +55,15 @@ class LoginPage extends React.Component {
 
         response.json().then(json => {
           console.log(json);
-
+          //"token" shou match with server
+          Auth.authenticateUser(json.token, email);
+          // since clinet login successfully, redirect to root, app component wil be shown.
           this.context.router.replace('/');
         });
       } else {
         console.log('Login failed');
         response.json().then(json => {
+          // if login fail, reset error in the state
           const errors = json.errors ? json.errors : {};
           errors.summary = json.message;
           this.setState({errors});

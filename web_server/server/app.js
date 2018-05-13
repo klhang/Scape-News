@@ -2,6 +2,11 @@ var express=require('express');
 var path=require('path');
 
 var news = require('/routes/news');
+// Connect MongoDB and load UserModel
+
+var config = require('./config/config.json');
+require('./models/main.js').connect(config.mongoDbUri);
+
 
 var index=require('./routes/index');
 var app=express();

@@ -47,7 +47,7 @@ const SignUpForm = ({
   </div>
 );
 
-SignUpForm.propTypes = {
+SignUpForm.PropTypes = {
   onSubmit: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,

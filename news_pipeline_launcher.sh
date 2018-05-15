@@ -1,4 +1,5 @@
 #!/bin/bash
+# To easily start the pipeline, I write a bash script to launch the pipeline, start redis and mongodb.
 service redis_6379 start
 service mongod start
 

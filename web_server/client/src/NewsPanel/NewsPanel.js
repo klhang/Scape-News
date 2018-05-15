@@ -49,7 +49,7 @@ class NewsPanel extends React.Component {
     fetch(request)
       .then(res => res.json())
       .then(fetched_news_list => {
-        if (!fetched_news_list || fetched_news_list.length == 0) {
+        if (!fetched_news_list || fetched_news_list.length === 0) {
           this.setState({
             loadedAll: true
           })

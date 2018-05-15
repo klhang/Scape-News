@@ -29,7 +29,7 @@ class Base extends React.Component {
           </div>
         </nav>
         <br/>
-         <!-- passed by React rounter-->
+
         {this.props.children}
       </div>
     );

@@ -1,7 +1,7 @@
 #!/bin/bash
 # To easily start the pipeline, I write a bash script to launch the pipeline, start redis and mongodb.
-service redis_6379 start
-service mongod start
+brew services start redis
+brew services start mongodb
 
 pip3 install -r requirements.txt
 
@@ -14,4 +14,4 @@ python3 news_deduper.py &
 echo "=================================================="
 read -p "PRESS [ENTER] TO TERMINATE PROCESSES." PRESSKEY
 
-kill $(jobs -p)
+killall python3

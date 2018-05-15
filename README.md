@@ -9,4 +9,4 @@ Scape News is a real Time News Scraping and Filtering System. I implemented a da
 JavaScript, Java, Python, React, Node.js, Flask, Redis, MongoDB, RabbitMQ, TF-IDF, PassPort, Postman.
 
 ## Architecture
-![Architecture](https://github.com/klhang/Collaborative-Online-Judge/blob/master/Docs/CodeLab%20Arch%20copy.png)
+![Architecture](https://github.com/klhang/Scape-News/blob/master/Architecture/Scape_News%20Arch%20copy.png)

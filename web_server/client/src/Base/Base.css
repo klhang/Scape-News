@@ -1,3 +1,22 @@
+.page-footer {
+  padding-top: 0px !important;
+  background-color: #5761C7 !important;
+}
+
 .nav-wrapper {
-  background-color: transparent;
+  background-color:  #5761C7;
+}
+
+nav .brand-logo {
+  padding-left: 30px;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
 }

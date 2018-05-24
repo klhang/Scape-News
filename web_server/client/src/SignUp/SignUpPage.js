@@ -1,3 +1,4 @@
+import Auth from '../Auth/Auth';
 import PropTypes from 'prop-types';
 import React from 'react';
 import SignUpForm from './SignUpForm';
@@ -14,6 +15,57 @@ class SignUpPage extends React.Component {
         confirm_password: ''
       }
     };
+  }
+
+  processDemoForm(event) {
+    console.log('submit working')
+    event.preventDefault();
+
+    const email = 'Chris@Demo.com';
+    const password = '00000000';
+
+    console.log('email:', email);
+    console.log('password:', password);
+
+    // Post login data
+    const url = 'http://' + window.location.hostname + ':3000/auth/login';
+    const request = new Request(
+      url,
+      {
+        method:'POST',
+        headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password
+        })
+      });
+
+    fetch(request).then(response => {
+      if (response.status === 200) {
+        this.setState({
+          errors: {}
+        });
+
+        response.json().then(json => {
+          console.log(json);
+          //"token" shou match with server
+          Auth.authenticateUser(json.token, email);
+          // since clinet login successfully, redirect to root, app component wil be shown.
+          this.context.router.replace('/');
+        });
+      } else {
+        console.log('Login failed');
+        response.json().then(json => {
+          // if login fail, reset error in the state
+          const errors = json.errors ? json.errors : {};
+          errors.summary = json.message;
+          this.setState({errors});
+        });
+      }
+    });
   }
 
   processForm(event) {
@@ -90,6 +142,7 @@ class SignUpPage extends React.Component {
     return (
       <SignUpForm
         onSubmit={(e) => this.processForm(e)}
+        onSubmitDemo={(e) => this.processDemoForm(e)}
         onChange={(e) => this.changeUser(e)}
         errors={this.state.errors}
         user={this.state.user}

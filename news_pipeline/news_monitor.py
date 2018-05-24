@@ -22,10 +22,8 @@ SCRAPE_NEWS_TASK_QUEUE_NAME = 'Scrape-news-task'
 NEWS_SOURCES = [
     'usa-today',
     'bbc-news',
-    'bbc-sport',
     'bloomberg',
     'cnn',
-    'entertainment-weekly',
     'espn',
     'techcrunch',
     'the-new-york-times',

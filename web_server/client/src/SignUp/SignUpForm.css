@@ -5,5 +5,24 @@
 
 .error-message {
   padding-left: 20px;
-  color: red;
+  color: #5b5756;
 }
+
+.logo1 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 0px;
+  padding-bottom: 15px;
+  width: 30%;
+}
+
+/*body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}*/

@@ -17,8 +17,12 @@
   font-size: 18px;
 }
 
+
+
 .news-chip {
   font-size: 18px;
+  color: white;
+  background-color: #5761C7;
 }
 
 .fill {
